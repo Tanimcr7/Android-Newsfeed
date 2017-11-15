@@ -7,12 +7,12 @@
     <!-- you can use any color you want I used here gray color-->
 
 
-    <stroke android:width="2dp"
+    <stroke android:width="0dp"
         >
         </stroke>
     <corners
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp"
-        android:topLeftRadius="40dp"
+        android:topLeftRadius="15dp"
         android:topRightRadius="0dp" />
 </shape>

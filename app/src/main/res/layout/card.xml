@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.CardView
@@ -15,7 +15,7 @@
         app:cardCornerRadius="20dp"
 
 
-       >
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -35,12 +35,14 @@
             <!--  android:background="?attr/selectableItemBackgroundBorderless" -->
             <ImageView
                 android:id="@+id/alert"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/thumbnail"
+                android:layout_below="@id/linearLayout1"
                 android:layout_toRightOf="@+id/count"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
                 android:src="@drawable/ic_dots" />
 
             <TextView
@@ -48,8 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/alert"
-                android:paddingTop="10dp"
                 android:paddingLeft="18dp"
+                android:paddingTop="10dp"
                 android:textColor="#3b8fe5"
                 android:textSize="18dp" />
 
@@ -60,9 +62,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_below="@+id/title"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:layout_below="@+id/title"
 
                 android:textColor="#25ba2a"
 
@@ -71,27 +73,26 @@
 
             <TextView
                 android:id="@+id/count"
-                android:height="45dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:paddingLeft="20dp"
                 android:layout_below="@+id/link"
+                android:height="45dp"
+                android:paddingLeft="20dp"
 
                 android:paddingTop="10dp"
-                android:text="20 min ago"
-                 />
+                android:text="20 min ago" />
 
             <ImageView
                 android:id="@+id/like"
-                android:layout_width="25dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/link"
                 android:layout_toEndOf="@+id/count"
                 android:layout_toRightOf="@+id/count"
+                android:paddingLeft="5dp"
                 android:paddingTop="1dp"
-                android:paddingLeft="15dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_dots" />
 
@@ -101,10 +102,10 @@
                 android:layout_height="25dp"
                 android:layout_below="@+id/link"
                 android:layout_toLeftOf="@+id/showlike"
+                android:layout_toRightOf="@id/like"
                 android:layout_toStartOf="@+id/showlike"
-                android:paddingLeft="0dp"
-
                 android:paddingBottom="10dp"
+                android:paddingLeft="3dp"
 
 
                 android:paddingTop="0dp"
@@ -121,18 +122,17 @@
 
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="SHOW LIKES"
-                 />
+                android:text="SHOW LIKES" />
 
             <ImageView
                 android:id="@+id/comment"
-                android:layout_width="25dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/count"
                 android:layout_toEndOf="@+id/showlike"
                 android:layout_toRightOf="@+id/showlike"
+                android:paddingLeft="8dp"
                 android:paddingTop="1dp"
-                android:paddingLeft="12dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_dots" />
 
@@ -140,77 +140,76 @@
                 android:id="@+id/commentcount"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-
                 android:layout_below="@+id/link"
                 android:layout_toLeftOf="@+id/showcomment"
+                android:layout_toRightOf="@id/comment"
                 android:layout_toStartOf="@+id/showcomment"
                 android:paddingBottom="10dp"
 
                 android:paddingTop="0dp"
-                android:text=""
-                 />
+                android:text="" />
 
             <TextView
                 android:id="@+id/showcomment"
                 android:layout_width="90dp"
                 android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
-                android:paddingLeft="5dp"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/link"
-                 android:paddingTop="5dp"
-                android:text="SHOW COMMENTS"
-                 />
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="SHOW COMMENTS" />
 
             <LinearLayout
 
                 android:id="@+id/linearLayout1"
-                android:layout_below="@id/thumbnail"
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
-
+                android:layout_height="5dp"
                 android:layout_alignParentLeft="true"
+
+                android:layout_below="@id/thumbnail"
 
                 android:orientation="vertical">
 
             </LinearLayout>
 
             <LinearLayout
+
                 android:id="@+id/linearLayout2"
 
-                android:paddingLeft="10dp"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_above="@id/linearLayout1"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_above="@id/linearLayout1"
-                android:gravity="center"
                 android:background="@drawable/corner_rad"
-
-
-
-
+                android:gravity="center"
+                android:paddingLeft="10dp"
 
 
                 >
+
+
                 <TextView
                     android:id="@+id/apptext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="6dp"
                     android:gravity="center"
+                    android:paddingLeft="6dp"
 
 
                     />
 
                 <ImageView
                     android:id="@+id/appicon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_dots"
-                    android:paddingLeft="4dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_gravity="center"
+                    android:foregroundGravity="center"
+                    android:paddingLeft="4dp"
+                    android:src="@drawable/ic_dots"
 
                     />
             </LinearLayout>

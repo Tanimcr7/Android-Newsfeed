@@ -3,6 +3,8 @@ package com.example.tanim.finaltask;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -140,12 +142,25 @@ public class AlbumsAdapter  extends RecyclerView.Adapter<AlbumsAdapter.MyViewHol
             holder.miniAppName.setVisibility(View.VISIBLE);
             holder.miniAppIconImage.setVisibility(View.VISIBLE);
             String sr=album.getMiniAppColor();
+            holder.linlayout2.setBackgroundResource(R.drawable.corner_rad);
+           // holder.linlayout2.setBackground(ContextCompat.getDrawable(mContext, R.drawable.corner_rad));
 
-         //   holder.linlayout1.setBackgroundColor(sr);
+            //   holder.linlayout1.setBackgroundColor(sr);
+            holder.linlayout2.setBackgroundResource(R.drawable.corner_rad);
+            GradientDrawable drawable = (GradientDrawable) holder.linlayout2.getBackground();
+            drawable.setColor(Color.parseColor(sr));
 
 
             holder.linlayout1.setBackgroundColor(Color.parseColor(sr));
-            holder.linlayout2.setBackgroundColor(Color.parseColor(sr));
+          //  holder.linlayout2.setBackgroundColor(Color.parseColor(sr));
+
+/*
+            GradientDrawable shape = new GradientDrawable();
+          //  shape.setShape(GradientDrawable.RECTANGLE);
+            shape.setCornerRadii(new float[] { 8, 8, 8, 8, 0, 0, 0, 0 });
+            //shape.setColor(backgroundColor);
+           // shape.setStroke(3, borderColor);
+            holder.linlayout2.setBackgroundDrawable(shape);*/
             holder.miniAppName.setText(album.getMiniAppName());
             holder.miniAppIconImage.setImageDrawable(mContext.getResources().getDrawable(R.drawable.appicon));
 

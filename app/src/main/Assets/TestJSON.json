@@ -154,6 +154,7 @@
       "postType": "post",
       "miniAppName": null,
       "miniAppIconImage": null,
+      "miniAppColor": null,
       "newsFeedLinkText": "Open the Recognition app\nto give a SHOUT OUT now",
       "isLiked": false,
       "isCommented": false,
