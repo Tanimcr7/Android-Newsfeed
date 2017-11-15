@@ -1,95 +1,62 @@
 package com.example.tanim.finaltask;
 
-//import android.support.v7.app.AppCompatActivity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
-
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Rect;
-import android.os.Bundle;
-//import android.support.design.widget.AppBarLayout;
-//import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.view.Menu;
-import android.widget.ListView;
 
-
-//import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.app.PendingIntent.getActivity;
+/**
+ * Created by Tanvir Yasin on 11/15/2017.
+ */
 
-public class MainActivity extends AppCompatActivity {
+public class FragmaentView extends Fragment {
 
-
-   /* private RecyclerView recyclerView;
-    private AlbumsAdapter adapter;
-    private List<Album> albumList;*/
+    public   RecyclerView recyclerView;
+    public AlbumsAdapter adapter;
+    public List<Album> albumList;
+    Context ncontext;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      //  prepareAlbums();
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_main);
-        FragmaentView fragmaentView = new FragmaentView();
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.activity_main,fragmaentView,"NewsFeed");
-        transaction.commit();
+        View v = inflater.inflate(R.layout.newsfeed_fragment,container,false);
 
-
-        /*recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         albumList = new ArrayList<>();
-        adapter = new AlbumsAdapter(this, albumList);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        //adapter = new AlbumsAdapter(this, albumList);
+       // adapter = new AlbumsAdapter(this,albumList);
+        prepareAlbums();
+        adapter = new AlbumsAdapter(getActivity(),albumList);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
-       prepareAlbums();*/
 
+        return v;
     }
 
-    /*private void prepareAlbums() {
+    private void prepareAlbums() {
 
-       *//* URL url = new URL("http://www.weatherinthehud.com/wordpress/wp-content/uploads/2015/11/rain.jpg");
+       /* URL url = new URL("http://www.weatherinthehud.com/wordpress/wp-content/uploads/2015/11/rain.jpg");
         Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
         View view;
         ImageView thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-        thumbnail.setImageBitmap(bmp);*//*
+        thumbnail.setImageBitmap(bmp);*/
 
 
 
@@ -98,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    *//*Parsing .json file
-    *//*
+    /*Parsing .json file
+    */
 
         // Reading json file from assets folder
         StringBuffer sb = new StringBuffer();
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new InputStreamReader( getAssets().open("TestJSON.json")));
+            br = new BufferedReader(new InputStreamReader( getActivity().getAssets().open("TestJSON.json")));
             String temp;
             while ((temp = br.readLine()) != null)
                 sb.append(temp);
@@ -156,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 String posttime = jsonObj.getString("postTime");
 
 
-          *//*      String sr="null";
+          /*      String sr="null";
 
                 if(miniappname.equals(sr) ){
                     miniappname="b";
@@ -169,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-                Log.v("COLOR", miniappname);*//*
+                Log.v("COLOR", miniappname);*/
                 //boolean isurgent = jsonObj.getBoolean("isUrgentPost");
 
                 Album a = new Album(nid,nTitle,nUrl,likecnt,commentcnt,isurgent,posttype,miniappname,miniappimage,miniappcolor,nlink,isliked,isCommented,posttime);
@@ -188,6 +155,6 @@ public class MainActivity extends AppCompatActivity {
         String myjsonstring = sb.toString();
 
 
-    }*/
+    }
 
 }

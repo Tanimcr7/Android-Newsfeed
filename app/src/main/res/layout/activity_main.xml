@@ -3,32 +3,13 @@
     <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="#00BBFF"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
 
         tools:context="com.example.tanim.finaltask.MainActivity"
         android:id="@+id/activity_main"
         >
-
-        <RelativeLayout
-            android:id="@+id/relative_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
-
-            <android.support.v7.widget.RecyclerView
-
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-
-
-
-        </RelativeLayout>
 
     </LinearLayout>
 
